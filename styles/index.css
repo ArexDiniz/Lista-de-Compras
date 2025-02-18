@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --background-primary: #F4F5FB;
+    --background-secondary: #FFFFFF;
+
+    --color-brand: #CA3884;
+    --color-brand-hover: #A52C6B;
+    --color-dander: #C93847;
+
+    --content-primary: #080B12;
+    --content-secondary: #374151;
+    --content-tertiary: #9CA3AF;
+    --always-white: #FFFFFF;
+
+    --border-primary: #D1D5DB;
+    --border-hover: #B9C2D0;
+
+    --title: bold 24px/32px 'Inter', sans-serif;
+    --label: normal 600 16px/20px 'Inter', sans-serif;
+    --paragraph: normal 500 16px/20px 'Inter', sans-serif;
+    --link: normal 500 14px/16px 'Inter', sans-serif;
+}
+
+
+body{
+    
+    background-color: var(--background-primary);
+
+}
+
+.display-none{
+    display: none;
+}
+
+.container{
+    margin-top: 2.06rem;
+    width: 1280px;
+    height: 100vh;
+    padding-inline: 365px;
+    margin-inline: auto;
+   
+}
+
+#logo-wrapper{
+    display: flex;
+    justify-content: center;
+  
+    & img{
+        width: 156px;
+        height: 40px;
+    }
+}
+
+#link{
+    margin-top: 3.875rem;
+    background-image: url(../assets/back.png);
+    background-repeat: no-repeat;
+    background-position: 0 55%;
+    cursor: pointer;
+
+    & a{
+        margin-left: 16px;
+        text-decoration: none;
+        color: var(--color-brand);
+        font: var(--link);
+    }
+}
+
+h1{
+    margin-top: 1rem;
+    color: var(--content-primary);
+    font: var(--title);
+}
+
+.add-item{
+    display: grid;
+    grid-template-columns: 2.8fr 1fr;
+    gap: 1rem;
+
+    & input{
+        padding: 0.6875rem;
+        border: 2px solid var(--border-primary);
+        border-radius: 12px;
+        font: var(--paragraph);
+        color: var(--content-tertiary);
+        outline: none;
+
+        &:hover
+        {
+            border-color: var(--border-hover);
+        }
+    
+        &:active,
+        &:focus{
+            border-color: var(--color-brand);
+            color: var(--content-primary);
+        }
+    }
+
+
+
+    & button{
+        padding: 0.75rem;
+        border: none;
+        border-radius: 12px;
+        background-color: var(--color-brand);
+        color: var(--always-white);
+        font: var(--label);
+        cursor: pointer;
+        outline: none;
+
+        &:hover{
+            background-color: var(--color-brand-hover);
+        }
+    }
+
+   
+}
