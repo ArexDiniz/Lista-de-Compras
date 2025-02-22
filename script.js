@@ -4,8 +4,10 @@ console.log('Hello, world!')
 const item = document.getElementById('item')
 const buttonAdd = document.getElementById('button-add')
 const container = document.querySelector('.container')
-
 const listProducts = document.getElementById('listProducts')
+
+
+window.addEventListener("load", carregarLista);
 
 
 
@@ -35,7 +37,8 @@ function addListItem(produto){
         
        console.log(divContent)
 
-       listProducts.innerHTML += divContent
+       listProducts.insertAdjacentHTML("beforeend", divContent);
+       salvarLista();
 }
 
 listProducts.onclick = (event) => {
@@ -65,7 +68,22 @@ function removeAlert(){
             document.querySelector('.remove-alert').remove()
         }, 2000)
 
+        salvarLista();
 
+
+}
+
+
+function salvarLista() {
+    const itens = Array.from(document.querySelectorAll(".input-wrapper label"))
+        .map(label => label.textContent);
+    localStorage.setItem("lista", JSON.stringify(itens));
+}
+
+
+function carregarLista() {
+    const listaSalva = JSON.parse(localStorage.getItem("lista")) || [];
+    listaSalva.forEach(produto => addListItem(produto));
 }
 
 
