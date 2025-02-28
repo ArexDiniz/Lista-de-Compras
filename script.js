@@ -30,6 +30,7 @@ buttonAdd.addEventListener('click', () => {
 
 
 
+
 /**
  * Função para adicionar um item à lista de produtos.
  * 
@@ -43,6 +44,7 @@ buttonAdd.addEventListener('click', () => {
  * Após criar o item, ele é inserido no final da lista de produtos (`listProducts`) e a função `salvarLista()` é chamada para salvar o estado atual da lista.
  */
 function addListItem(produto){
+   
     const divContent = `
             <div class="input-wrapper">
                 <input type="checkbox" class="check">
@@ -56,6 +58,29 @@ function addListItem(produto){
        listProducts.insertAdjacentHTML("beforeend", divContent);
        salvarLista();   // Salva a lista atualizada
 }
+
+
+/**
+ * Função que aguarda a tecla Enter ser precioonada para adicionar um item à lista.
+ * 
+ * 
+ * - Captura o valor do campo de entrada (`item.value`).
+ * - Verifica se o campo de entrada está vazio:
+ *   - Se estiver vazio, exibe um alerta pedindo para o usuário digitar um produto.
+ *   - Se não estiver vazio, chama a função `addListItem(item.value)` para adicionar o item à lista.
+ * - Após a verificação e execução, limpa o campo de entrada.
+ */
+document.addEventListener("keydown", (event) => {
+    if(event.key === 'Enter'){
+        if(item.value === ''){
+            alert('Digite um produto') // Exibe alerta caso o campo esteja vazio
+        } else{
+            addListItem(item.value)// Chama a função addListItem passando o valor do campo de entrada como argumento
+        } 
+
+        item.value = '' 
+    }
+});
 
 
 /**
